@@ -2,6 +2,7 @@ import { Grid, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { Box } from '@mui/system';
 import React from 'react';
+import Product from '../product/Product';
 
 const useStyles = makeStyles({
     productsTitle: {
@@ -22,15 +23,9 @@ const Products = () => {
 
             <Box className={classes.serviceContainer}>
                 <Typography variant='h2' className={classes.productsTitle}>MODELS</Typography>
-                <Grid container spacing={2}>
+                <Grid container>
                     {
-                        itemData.map((item, index) => {
-                            return (
-                                <Grid item xs={4}>
-                                    <img width='100%' src={item.img} alt={item.title} />
-                                </Grid>
-                            )
-                        })
+                        itemData.map((item, index) => <Product item={item} key={index}></Product>)
                     }
                 </Grid>
             </Box>
@@ -40,25 +35,25 @@ const Products = () => {
 
 const itemData = [
     {
-        img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
+        img: 'https://www.bugatti.com/fileadmin/_processed_/sei/p1/se-image-ddbedf3cbd9a8a54019cb52035c97837.webp',
         title: 'Breakfast',
         rows: 2,
         cols: 2,
     },
     {
-        img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
+        img: 'https://www.bugatti.com/fileadmin/_processed_/sei/p1/se-image-a4b8659aca1db6d7c159ff712a57f0d6.webp',
         title: 'Burger',
     },
     {
-        img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
+        img: 'https://www.bugatti.com/fileadmin/_processed_/sei/p1/se-image-8d8feca63aa2e5ccc4ba9ec1de73f6e5.webp',
         title: 'Camera',
     },
     {
-        img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
+        img: 'https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/facelift_2019/homepage/hero_banner/2020/11_18_sto_lancio/Huracan_STO.png',
         title: 'Coffee',
         cols: 2,
     }, {
-        img: 'https://images.unsplash.com/photo-1533827432537-70133748f5c8',
+        img: 'https://www.topgear.com/sites/default/files/images/news-article/carousel/2018/11/4c16571ee0d81e04b092beabd12d56e6/526140.jpg',
         title: 'Hats',
         cols: 2,
     },

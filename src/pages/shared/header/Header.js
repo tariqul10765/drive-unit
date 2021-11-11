@@ -1,6 +1,7 @@
 import { AppBar, Button, Drawer, IconButton, Toolbar, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -11,7 +12,9 @@ const Header = () => {
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                             DRIVE UNIT
                         </Typography>
-                        <Button color="inherit">Login</Button>
+                        <Button color="inherit">
+                            <NavLink to='/explore-products'>EXPLORE PRODUCTS</NavLink>
+                        </Button>
                     </Toolbar>
                 </AppBar>
             </Box>
