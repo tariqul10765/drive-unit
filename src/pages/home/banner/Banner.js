@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     bannerTitle: {
         paddingTop: '50px',
         "& h1": {
-            fontSize: '60px',
+            fontSize: '300%',
         },
         "& h2": {
             fontSize: '20px',

@@ -13,6 +13,7 @@ import { Typography } from '@mui/material';
 const useStyles = makeStyles({
     container: {
         marginTop: '100px',
+        padding: '50px 0',
         width: '100%',
         textAlign: 'center',
         backgroundColor: 'black',
@@ -35,6 +36,11 @@ const useStyles = makeStyles({
         "& li": {
             listStyle: 'none',
             fontSize: '12px'
+        },
+        "@media (max-width: 767px)": {
+            "& ul": {
+                flexDirection: 'column'
+            },
         }
     }
 })
@@ -51,7 +57,7 @@ const Footer = () => {
                 <YouTubeIcon />
                 <LinkedInIcon />
             </Box>
-            <Typography variant="body2">© 2021 BUGATTI AUTOMOBILES S.A.S.</Typography>
+            <Typography variant="body2" sx={{ margin: '20px 0' }}>© 2021 BUGATTI AUTOMOBILES S.A.S.</Typography>
 
             <Box className={classes.extra}>
                 <ul>

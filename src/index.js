@@ -6,11 +6,12 @@ import reportWebVitals from './reportWebVitals';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { StyledEngineProvider } from '@mui/styled-engine';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <StyledEngineProvider injectFirst>
     <App />
-  </React.StrictMode>,
+  </StyledEngineProvider>,
   document.getElementById('root')
 );
 
