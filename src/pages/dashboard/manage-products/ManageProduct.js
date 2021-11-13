@@ -10,8 +10,6 @@ const ManageProduct = ({ product, handleDeleteOrder }) => {
 
     const handleConfirmation = (isConfirm) => {
 
-        console.log('first bar', isConfirm, isOpen);
-
         if (isConfirm) handleDeleteOrder(product._id);
     }
 

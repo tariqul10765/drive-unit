@@ -35,7 +35,7 @@ const Login = () => {
 
 
     const onSubmit = (data) => {
-        const { name, email, password } = data;
+        const { email, password } = data;
         reset();
 
         signInUser(redirect_url, history, email, password);

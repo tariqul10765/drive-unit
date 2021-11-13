@@ -7,7 +7,6 @@ const MakeAdmin = () => {
         const data = {
             email: e.target.email.value
         };
-        // console.log(typeof data);
 
         fetch(url, {
             method: 'PUT',

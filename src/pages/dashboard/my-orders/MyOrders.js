@@ -16,7 +16,6 @@ export default function MyOrders() {
 
     useEffect(() => {
         const url = `${process.env.REACT_APP_API_BASE_URL}/order/get-single-user-order/${user.email}`;
-        console.log(url);
 
         fetch(url)
             .then(res => res.json())

@@ -45,7 +45,6 @@ const useFirebase = () => {
             .then((result) => {
                 // Signed in 
                 const user = result.user;
-                console.log(redirect_url);
                 history.push(redirect_url);
             })
             .catch((error) => {
@@ -63,7 +62,7 @@ const useFirebase = () => {
 
     useEffect(() => {
         const url = `${process.env.REACT_APP_API_BASE_URL}/user/get-user-by-email/${user.email}`;
-        console.log(url);
+
         fetch(url)
             .then(res => res.json())
             .then(data => setAdmin(data.data?.admin))
@@ -74,7 +73,6 @@ const useFirebase = () => {
             if (user) {
                 // User is signed in, see docs for a list of available properties
                 setUser(user);
-                console.log(user);
             } else {
                 console.log('User is signed out');
             }

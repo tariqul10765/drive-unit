@@ -33,7 +33,7 @@ const Register = () => {
 
     const onSubmit = (data) => {
         const { userName, email, password } = data;
-        console.log(email, password);
+
         reset();
 
         createUser(history, redirect_url, userName, email, password);

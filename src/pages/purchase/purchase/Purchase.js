@@ -2,7 +2,7 @@ import { Button, Grid, TextField, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import React, { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { useHistory, useLocation, useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
 import ConfirmationModal from '../../dashboard/confirmation-modal/ConfirmationModal';
 
@@ -23,13 +23,11 @@ const useStyle = makeStyles({
 const Purchase = () => {
     const classes = useStyle();
     const { purchaseId } = useParams();
-    const { control, handleSubmit, reset } = useForm();
+    const { control, handleSubmit } = useForm();
     const { user } = useAuth();
-    const location = useLocation();
     const history = useHistory();
 
     const redirect_url = '/explore-products';
-    console.log(redirect_url);
 
     const [isOpen, setIsOpen] = useState(false);
     const [inputData, setInputData] = useState({});
@@ -54,7 +52,6 @@ const Purchase = () => {
             const { _id, ...productWithoutId } = product;
 
             const data = { ...inputData, uId: user.uid, ...productWithoutId };
-            console.log(data);
 
             fetch(url, {
                 method: 'POST',

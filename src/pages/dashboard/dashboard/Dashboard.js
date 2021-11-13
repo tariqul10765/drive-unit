@@ -32,7 +32,7 @@ function Dashboard(props) {
     const { window } = props;
     let { path, url } = useRouteMatch();
     const { admin, userSignOut } = useAuth();
-    console.log(admin);
+
     const [mobileOpen, setMobileOpen] = useState(false);
 
     const handleDrawerToggle = () => {

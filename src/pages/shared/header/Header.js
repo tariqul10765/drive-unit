@@ -24,7 +24,7 @@ const useStyle = makeStyles({
     }
 })
 function stringAvatar(name) {
-    console.log(name);
+
     return {
         sx: {
             bgcolor: 'orange',
