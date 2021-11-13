@@ -7,7 +7,6 @@ import ConfirmationModal from '../confirmation-modal/ConfirmationModal';
 const ManageProduct = ({ product, handleDeleteOrder }) => {
 
     const [isOpen, setIsOpen] = useState(false);
-    const [isConfirm, setIsConfirm] = useState(false);
 
 
     const handleConfirmation = (isConfirm) => {
@@ -41,9 +40,8 @@ const ManageProduct = ({ product, handleDeleteOrder }) => {
             <ConfirmationModal
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
-                // setIsConfirm={setIsConfirm}
                 handleConfirmation={handleConfirmation}
-            ></ConfirmationModal>
+            >delete</ConfirmationModal>
         </TableRow>
 
     );

@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material';
+import { CircularProgress, Grid } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import Product from '../home/product/Product';
 
@@ -13,11 +13,17 @@ const ExploreProducts = () => {
     }, []);
     return (
         <div>
-            <Grid container>
-                {
-                    products.map((item, index) => <Product item={item} key={index}></Product>)
-                }
-            </Grid>
+            {
+                products.length
+                    ?
+                    <Grid container>
+                        {
+                            products.map((item, index) => <Product item={item} key={index}></Product>)
+                        }
+                    </Grid>
+                    :
+                    <CircularProgress />
+            }
         </div>
     );
 };

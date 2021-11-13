@@ -1,4 +1,4 @@
-import { Grid, Typography } from '@mui/material';
+import { CircularProgress, Grid, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
@@ -21,6 +21,7 @@ const Products = () => {
     const classes = useStyles();
     const [products, setProducts] = useState([]);
 
+
     useEffect(() => {
         const url = `${process.env.REACT_APP_API_BASE_URL}/products/product-list`;
         fetch(url)
@@ -28,16 +29,23 @@ const Products = () => {
             .then(json => setProducts(json.data.slice(0, 6)));
     }, []);
 
+
     return (
         <div>
 
             <Box className={classes.serviceContainer}>
                 <h1 className={classes.productsTitle}>MODELS</h1>
-                <Grid container>
-                    {
-                        products.map((item, index) => <Product item={item} key={index}></Product>)
-                    }
-                </Grid>
+                {
+                    products.length
+                        ?
+                        <Grid container>
+                            {
+                                products.map((item, index) => <Product item={item} key={index}></Product>)
+                            }
+                        </Grid>
+                        :
+                        <CircularProgress />
+                }
             </Box>
         </div>
     );

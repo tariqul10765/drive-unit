@@ -32,7 +32,7 @@ const drawerWidth = 240;
 function Dashboard(props) {
     const { window } = props;
     let { path, url } = useRouteMatch();
-    const { admin } = useAuth();
+    const { admin, userSignOut } = useAuth();
     console.log(admin);
     const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -48,7 +48,12 @@ function Dashboard(props) {
                 {
                     !admin &&
                     <>
-                        <NavLink to={`${url}/my-orders`}>
+                        <NavLink
+                            to={`${url}/my-orders`}
+                            style={isActive => ({
+                                color: isActive ? "green" : "blue"
+                            })}
+                        >
                             <ListItem button>
                                 <ListItemIcon>
                                     <InboxIcon />
@@ -56,7 +61,12 @@ function Dashboard(props) {
                                 <ListItemText primary="My Orders" />
                             </ListItem>
                         </NavLink>
-                        <NavLink to={`${url}/pay`}>
+                        <NavLink
+                            to={`${url}/pay`}
+                            style={isActive => ({
+                                color: isActive ? "green" : "blue",
+                            })}
+                        >
                             <ListItem button>
                                 <ListItemIcon>
                                     <InboxIcon />
@@ -64,7 +74,12 @@ function Dashboard(props) {
                                 <ListItemText primary="Pay" />
                             </ListItem>
                         </NavLink>
-                        <NavLink to={`${url}/review`}>
+                        <NavLink
+                            to={`${url}/review`}
+                            style={isActive => ({
+                                color: isActive ? "green" : "blue",
+                            })}
+                        >
                             <ListItem button>
                                 <ListItemIcon>
                                     <InboxIcon />
@@ -77,7 +92,12 @@ function Dashboard(props) {
                 {
                     admin &&
                     <>
-                        <NavLink to={`${url}/manage-all-order`}>
+                        <NavLink
+                            to={`${url}/manage-all-order`}
+                            style={isActive => ({
+                                color: isActive ? "green" : "blue",
+                            })}
+                        >
                             <ListItem button>
                                 <ListItemIcon>
                                     <InboxIcon />
@@ -85,7 +105,12 @@ function Dashboard(props) {
                                 <ListItemText primary="Manage All Orders" />
                             </ListItem>
                         </NavLink>
-                        <NavLink to={`${url}/add-product`}>
+                        <NavLink
+                            to={`${url}/add-product`}
+                            style={isActive => ({
+                                color: isActive ? "green" : "blue",
+                            })}
+                        >
                             <ListItem button>
                                 <ListItemIcon>
                                     <InboxIcon />
@@ -93,7 +118,12 @@ function Dashboard(props) {
                                 <ListItemText primary="Add a product" />
                             </ListItem>
                         </NavLink>
-                        <NavLink to={`${url}/make-admin`}>
+                        <NavLink
+                            to={`${url}/make-admin`}
+                            style={isActive => ({
+                                color: isActive ? "green" : "blue",
+                            })}
+                        >
                             <ListItem button>
                                 <ListItemIcon>
                                     <InboxIcon />
@@ -101,7 +131,12 @@ function Dashboard(props) {
                                 <ListItemText primary="Make Admin" />
                             </ListItem>
                         </NavLink>
-                        <NavLink to={`${url}/manage-product`}>
+                        <NavLink
+                            to={`${url}/manage-product`}
+                            style={isActive => ({
+                                color: isActive ? "green" : "blue",
+                            })}
+                        >
                             <ListItem button>
                                 <ListItemIcon>
                                     <InboxIcon />
@@ -111,7 +146,7 @@ function Dashboard(props) {
                         </NavLink>
                     </>
                 }
-                <ListItem button>
+                <ListItem button onClick={userSignOut}>
                     <ListItemIcon>
                         <InboxIcon />
                     </ListItemIcon>
@@ -144,7 +179,7 @@ function Dashboard(props) {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        DRIVE UNIT
+                        <NavLink to='/'>DRIVE UNIT</NavLink>
                     </Typography>
                 </Toolbar>
             </AppBar>

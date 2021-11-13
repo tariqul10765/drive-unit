@@ -2,8 +2,9 @@ import { Button, Grid, TextField, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import React, { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { useParams } from 'react-router';
+import { useHistory, useLocation, useParams } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
+import ConfirmationModal from '../../dashboard/confirmation-modal/ConfirmationModal';
 
 const useStyle = makeStyles({
     container: {
@@ -24,7 +25,14 @@ const Purchase = () => {
     const { purchaseId } = useParams();
     const { control, handleSubmit, reset } = useForm();
     const { user } = useAuth();
+    const location = useLocation();
+    const history = useHistory();
 
+    const redirect_url = '/explore-products';
+    console.log(redirect_url);
+
+    const [isOpen, setIsOpen] = useState(false);
+    const [inputData, setInputData] = useState({});
     const [product, setProduct] = useState({});
 
     useEffect(() => {
@@ -36,22 +44,29 @@ const Purchase = () => {
     }, [purchaseId]);
 
     const onSubmit = (d) => {
-        const { displayName, email, imgURL } = user;
+        setInputData(d)
+    }
 
-        const url = `${process.env.REACT_APP_API_BASE_URL}/order/add-order`;
-        const { _id, ...productWithoutId } = product;
+    const handleConfirmation = (isConfirm) => {
 
-        const data = { ...d, uId: user.uid, ...productWithoutId };
-        console.log(data);
+        if (isConfirm) {
+            const url = `${process.env.REACT_APP_API_BASE_URL}/order/add-order`;
+            const { _id, ...productWithoutId } = product;
 
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        })
-        reset();
+            const data = { ...inputData, uId: user.uid, ...productWithoutId };
+            console.log(data);
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+                .then(res => {
+                    history.push(redirect_url);
+                })
+        }
     }
 
     return (
@@ -114,8 +129,17 @@ const Purchase = () => {
                             />}
                         />
 
-                        <Button type='submit' variant="outlined">PURCHASE</Button>
+                        <Button type='submit' variant="outlined"
+                            onClick={() => setIsOpen(true)}
+                        >
+                            PURCHASE
+                        </Button>
                     </form>
+                    <ConfirmationModal
+                        isOpen={isOpen}
+                        setIsOpen={setIsOpen}
+                        handleConfirmation={handleConfirmation}
+                    >confirm</ConfirmationModal>
                 </Grid>
                 <Grid item md={6}>
                     <Grid container spacing={2}>
@@ -130,7 +154,7 @@ const Purchase = () => {
                     </Grid>
                 </Grid>
             </Grid>
-        </div>
+        </div >
     );
 };
 

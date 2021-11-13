@@ -7,14 +7,14 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 400,
+    width: 250,
     bgcolor: 'white',
     border: '2px solid #000',
     boxShadow: 24,
     p: 4,
 };
 
-const ConfirmationModal = ({ isOpen, setIsOpen, handleConfirmation }) => {
+const ConfirmationModal = ({ isOpen, setIsOpen, handleConfirmation, children }) => {
 
 
     const handleOpen = () => setIsOpen(true)
@@ -34,7 +34,7 @@ const ConfirmationModal = ({ isOpen, setIsOpen, handleConfirmation }) => {
                         Are you sure?
                     </Typography>
                     <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                        You want to delete this?
+                        You want to {children} this?
                     </Typography>
                     <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                         <Button variant="text" onClick={handleClose}>Cancel</Button>
@@ -43,7 +43,7 @@ const ConfirmationModal = ({ isOpen, setIsOpen, handleConfirmation }) => {
                                 handleConfirmation(true);
                                 handleClose();
                             }}
-                        >Delete</Button>
+                        >{children}</Button>
                     </Box>
                 </Box>
             </Modal>

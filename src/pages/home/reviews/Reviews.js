@@ -1,5 +1,5 @@
 import { ClassNames } from '@emotion/react';
-import { Typography } from '@mui/material';
+import { CircularProgress, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
@@ -109,11 +109,17 @@ const Reviews = () => {
 
 
             <div className={classes.slider__container}>
-                <Slider {...settings}>
-                    {
-                        reviews.map((review, index) => <Review data={review} key={index}></Review>)
-                    }
-                </Slider>
+                {
+                    reviews.length
+                        ?
+                        <Slider {...settings}>
+                            {
+                                reviews.map((review, index) => <Review data={review} key={index}></Review>)
+                            }
+                        </Slider>
+                        :
+                        <CircularProgress />
+                }
             </div>
         </div>
     );

@@ -39,7 +39,7 @@ export default function ManageProducts() {
 
     return (
         <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-            <TableContainer component={Paper} sx={{ maxHeight: '70vh', maxWidth: '100%' }}>
+            <TableContainer component={Paper} sx={{ maxHeight: '70vh', maxWidth: '100vw' }}>
                 <Table stickyHeader sx={{ minWidth: 650 }} aria-label="sticky table">
                     <TableHead>
                         <TableRow>

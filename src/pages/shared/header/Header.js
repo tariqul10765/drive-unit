@@ -1,4 +1,5 @@
 import { AppBar, Button, Drawer, IconButton, List, ListItem, ListItemIcon, ListItemText, Toolbar, Typography } from '@mui/material';
+import Avatar from '@mui/material/Avatar';
 import MenuIcon from '@mui/icons-material/Menu';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import { Box } from '@mui/system';
@@ -16,9 +17,23 @@ const useStyle = makeStyles({
     navbar: {
         "@media (max-width: 767px)": {
             display: 'none',
+        },
+        "& a": {
+            color: 'white'
         }
     }
 })
+function stringAvatar(name) {
+    console.log(name);
+    return {
+        sx: {
+            bgcolor: 'orange',
+            width: '35px',
+            height: '35px'
+        },
+        children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
+    };
+}
 
 const Header = () => {
     const classes = useStyle();
@@ -90,7 +105,7 @@ const Header = () => {
 
     return (
         <div>
-            <Box sx={{ flexGrow: 1 }}>
+            <Box sx={{ flexGrow: 1, color: 'white' }}>
                 <AppBar position="static" sx={{ backgroundColor: '#171E2A' }}>
                     <Toolbar>
                         <IconButton
@@ -131,6 +146,13 @@ const Header = () => {
                                     </Button>
                             }
                         </Box>
+                        {
+                            user?.email
+                            &&
+                            <Avatar
+                                {...stringAvatar(`${user.displayName}`)}
+                            />
+                        }
                     </Toolbar>
                 </AppBar>
             </Box>

@@ -27,6 +27,7 @@ const MakeAdmin = () => {
                     label="Enter Email..."
                     variant="outlined"
                     name="email"
+                    required
                 />
                 <br />
                 <br />
