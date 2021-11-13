@@ -48,6 +48,8 @@ const Review = () => {
                     defaultValue=""
                     variant="standard"
                 />
+                <br />
+                <br />
                 <Button variant="outlined" type="submit">Send</Button>
             </form>
         </div>

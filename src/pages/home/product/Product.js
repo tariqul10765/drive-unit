@@ -71,11 +71,11 @@ const Product = ({ item }) => {
     const { _id, img, title, price, description } = item;
     return (
         <Grid item md={4} className={classes.container}>
-            <img width="100%" src={img} alt={title} />
+            <img width="100%" height='290px' src={img} alt={title} />
             <Box className={classes.details}>
                 <h4>${price}</h4>
                 <p>{description.slice(0, 100)} ...</p>
-                <Button variant='text' className={classes.detailsBtn}>View More =>></Button>
+                <Button variant='text' className={classes.detailsBtn}>{`View More =>>`}</Button>
             </Box>
             <Box className={classes.purchase}>
                 <h5>{title}</h5>

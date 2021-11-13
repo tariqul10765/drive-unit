@@ -17,6 +17,7 @@ const useStyle = makeStyles({
     message: {
         textAlign: 'center',
         backgroundColor: '#EEEEEE',
+        width: '100%',
         height: '100%',
         padding: '15px',
     },

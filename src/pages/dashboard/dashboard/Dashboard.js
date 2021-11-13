@@ -24,6 +24,7 @@ import MakeAdmin from '../make-admin/MakeAdmin';
 import AddProduct from '../add-product/AddProduct';
 import ManageAllOrder from '../manage-all-orders/ManageAllOrder';
 import ManageProduct from '../manage-products/ManageProducts';
+import AdminRoute from '../../../admin-route/AdminRoute';
 
 const drawerWidth = 240;
 
@@ -52,7 +53,7 @@ function Dashboard(props) {
                                 color: isActive ? "green" : "blue"
                             })}
                         >
-                            <ListItem button>
+                            <ListItem button onClick={handleDrawerToggle}>
                                 <ListItemIcon>
                                     <InboxIcon />
                                 </ListItemIcon>
@@ -65,7 +66,7 @@ function Dashboard(props) {
                                 color: isActive ? "green" : "blue",
                             })}
                         >
-                            <ListItem button>
+                            <ListItem button onClick={handleDrawerToggle}>
                                 <ListItemIcon>
                                     <InboxIcon />
                                 </ListItemIcon>
@@ -78,7 +79,7 @@ function Dashboard(props) {
                                 color: isActive ? "green" : "blue",
                             })}
                         >
-                            <ListItem button>
+                            <ListItem button onClick={handleDrawerToggle}>
                                 <ListItemIcon>
                                     <InboxIcon />
                                 </ListItemIcon>
@@ -96,7 +97,7 @@ function Dashboard(props) {
                                 color: isActive ? "green" : "blue",
                             })}
                         >
-                            <ListItem button>
+                            <ListItem button onClick={handleDrawerToggle}>
                                 <ListItemIcon>
                                     <InboxIcon />
                                 </ListItemIcon>
@@ -109,7 +110,7 @@ function Dashboard(props) {
                                 color: isActive ? "green" : "blue",
                             })}
                         >
-                            <ListItem button>
+                            <ListItem button onClick={handleDrawerToggle}>
                                 <ListItemIcon>
                                     <InboxIcon />
                                 </ListItemIcon>
@@ -122,7 +123,7 @@ function Dashboard(props) {
                                 color: isActive ? "green" : "blue",
                             })}
                         >
-                            <ListItem button>
+                            <ListItem button onClick={handleDrawerToggle}>
                                 <ListItemIcon>
                                     <InboxIcon />
                                 </ListItemIcon>
@@ -135,7 +136,7 @@ function Dashboard(props) {
                                 color: isActive ? "green" : "blue",
                             })}
                         >
-                            <ListItem button>
+                            <ListItem button onClick={handleDrawerToggle}>
                                 <ListItemIcon>
                                     <InboxIcon />
                                 </ListItemIcon>
@@ -240,18 +241,18 @@ function Dashboard(props) {
                     <Route exact path={`${path}/review`}>
                         <Review></Review>
                     </Route>
-                    <Route exact path={`${path}/make-admin`}>
+                    <AdminRoute exact path={`${path}/make-admin`}>
                         <MakeAdmin></MakeAdmin>
-                    </Route>
-                    <Route exact path={`${path}/add-product`}>
+                    </AdminRoute>
+                    <AdminRoute exact path={`${path}/add-product`}>
                         <AddProduct></AddProduct>
-                    </Route>
-                    <Route exact path={`${path}/manage-all-order`}>
+                    </AdminRoute>
+                    <AdminRoute exact path={`${path}/manage-all-order`}>
                         <ManageAllOrder></ManageAllOrder>
-                    </Route>
-                    <Route exact path={`${path}/manage-product`}>
+                    </AdminRoute>
+                    <AdminRoute exact path={`${path}/manage-product`}>
                         <ManageProduct></ManageProduct>
-                    </Route>
+                    </AdminRoute>
                     {/* <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
                     </AdminRoute>
