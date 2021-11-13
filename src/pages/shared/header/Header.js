@@ -31,7 +31,7 @@ function stringAvatar(name) {
             width: '35px',
             height: '35px'
         },
-        children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
+        children: `${name.split(' ')[0][0]}${name.split(' ')[1] ? name.split(' ')[1][0] : ''}`,
     };
 }
 
@@ -150,7 +150,7 @@ const Header = () => {
                             user?.email
                             &&
                             <Avatar
-                                {...stringAvatar(`${user.displayName}`)}
+                                {...stringAvatar(`${user?.displayName}`)}
                             />
                         }
                     </Toolbar>
