@@ -1,7 +1,6 @@
 import { IconButton, TableCell, TableRow } from '@mui/material';
 import React, { useState } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import ConfirmationModal from '../confirmation-modal/ConfirmationModal';
 
 const ManageProduct = ({ product, handleDeleteOrder }) => {

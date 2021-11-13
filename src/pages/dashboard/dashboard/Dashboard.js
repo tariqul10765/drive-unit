@@ -11,14 +11,12 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Route, Switch, useRouteMatch } from 'react-router';
 import MyOrders from '../my-orders/MyOrders';
 import Pay from '../pay/Pay';
-import { Button } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import Review from '../review/Review';
 import useAuth from '../../../hooks/useAuth';
@@ -222,9 +220,17 @@ function Dashboard(props) {
                 <Toolbar />
 
                 <Switch>
-                    <Route exact path={path}>
-                        <MyOrders></MyOrders>
-                    </Route>
+                    {
+                        admin
+                            ?
+                            <Route exact path={path}>
+                                <ManageAllOrder></ManageAllOrder>
+                            </Route>
+                            :
+                            <Route exact path={path}>
+                                <MyOrders></MyOrders>
+                            </Route>
+                    }
                     <Route exact path={`${path}/my-orders`}>
                         <MyOrders></MyOrders>
                     </Route>

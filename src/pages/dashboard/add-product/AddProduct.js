@@ -19,7 +19,7 @@ const useStyle = makeStyles({
 
 const AddProduct = () => {
     const classes = useStyle();
-    const { control, handleSubmit, reset } = useForm();
+    const { control, handleSubmit } = useForm();
     const [isOpen, setIsOpen] = useState(false);
     const [inputData, setInputData] = useState({});
 
