@@ -10,12 +10,16 @@ import useAuth from '../../hooks/useAuth';
 const useStyle = makeStyles({
     form__container: {
         width: '30%',
-        margin: '50px auto 0'
+        margin: '50px auto 0',
+        "@media (max-width: 767px)": {
+            width: '90%'
+        }
     },
     input: {
         width: '100%',
         marginBottom: '10px'
-    }
+    },
+
 })
 
 const Login = () => {
